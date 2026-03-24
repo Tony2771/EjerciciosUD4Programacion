@@ -7,25 +7,26 @@ public class P_141 {
     
      static boolean equilibrada(String expresion){
         Stack<Character> pila=new Stack();
+        char c;
+        char ultimo;
         
         for (int i = 0; i < expresion.length(); i++) {
-            char c = expresion.charAt(i);
+            c = expresion.charAt(i);
             if(expresion.charAt(i)=='{' || expresion.charAt(i) =='[' ||expresion.charAt(i) =='(')
                 pila.push(c);
             else if (expresion.charAt(i)=='}' ||expresion.charAt(i)==']'||expresion.charAt(i)==')'){
                 if(pila.isEmpty())
                     return false;
-                else
-                    pila.pop();
+                
+                ultimo=pila.pop();
+                
+                if(c=='('&& ultimo!=')') return false;
+                if(c=='{'&& ultimo!='}') return false;
+                if(c=='['&& ultimo!=']') return false;
             }
-            char ultimo=pila.pop();
-            
-            if(c=='('&& ultimo!=')') return false;
-            if(c=='{'&& ultimo!='}') return false;
-            if(c=='['&& ultimo!=']') return false;
         }
         return pila.isEmpty();
-    }
+     }
     
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
