@@ -1,6 +1,6 @@
 package aceptaelretoUd4Estructurasdinamicas;
 
-import java.util.HashSet;
+import java.util.*;
 import java.util.Scanner;
 
 public class P_185 {
@@ -9,16 +9,36 @@ public class P_185 {
         Scanner in = new Scanner(System.in);
         int numPotitos;
         HashSet<String> gusta;
-        HashSet<String> noGusta;
-        String palabra;
+        TreeSet<String> noGusta;
+        
+        String ingrediente;
         
         while((numPotitos=in.nextInt())!=0){
-            gusta= new HashSet<>();
-            noGusta = new HashSet<>();
+            gusta= new HashSet<String>();
+            noGusta = new TreeSet<String>();
             
-            while(in.next().equals("FIN")){
-                
+            while(numPotitos-->0) {
+                if(in.next().equals("SI:")){
+                   while(!(ingrediente=in.next()).equals("FIN")){
+                       gusta.add(ingrediente);
+                   }
+                }
+                else
+                   while(!(ingrediente=in.next()).equals("FIN")){
+                       noGusta.add(ingrediente);
+                   }
             }
+            
+                noGusta.removeAll(gusta);
+
+                if(noGusta.isEmpty())
+                    System.out.println("");
+                else{
+                    Iterator it = noGusta.iterator();
+                    for (int j = 0; j < noGusta.size()-1; j++)
+                        System.out.printf(it.next() + " ");
+                    System.out.println(it.next());
+                }
         }
     }
 }
