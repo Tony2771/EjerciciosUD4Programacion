@@ -21,13 +21,13 @@ public class P_171 {
     
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int montañas=in.nextInt();
+        int montaÃ±as=in.nextInt();
         int v[];
         
-        while(montañas-->0){
-            v=new int[montañas];
+        while(montaÃ±as-->0){
+            v=new int[montaÃ±as];
             
-            for (int i = 0; i < montañas; i++) {
+            for (int i = 0; i < montaÃ±as; i++) {
                 v[i]=in.nextInt();
             }
             
